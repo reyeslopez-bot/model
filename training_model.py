@@ -13,6 +13,19 @@ INTERFACE = 'en0'
 DURATION = 30
 
 def train_model():
+    X_train, X_test, y_train, y_test = train_test_split(X_df, y_series, test_size=0.2, stratify=y_series, random_state=42)
+
+    model = RandomForestClassifier(n_estimators=150, max_depth=10, random_state=42)
+    model.fit(X_train, y_train)
+
+    # Evaluate the model
+    accuracy = model.score(X_test, y_test)
+    logging.info(f"Model accuracy: {accuracy}")
+
+    # Save the trained model
+    with open('trained_model.pickle', 'wb') as file:
+        pickle.dump(model, file)
+    logging.info("Model saved.")
     try:
         # Read in the collected network data
         with open('network_data.json', 'r') as file:

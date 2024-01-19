@@ -67,6 +67,31 @@ def run_pipeline(file_path, model, test_size=0.2):
     
     return anomalies
 
+def preprocess_and_train(train_df, model):
+    # Assume train_df has columns 'features' and 'label'
+    train_features = train_df['features']
+    train_labels = train_df['label']
+    
+    scaler = StandardScaler()
+    train_features_scaled = scaler.fit_transform(train_features)
+    
+    model.fit(train_features_scaled, train_labels)
+    
+    return model, scaler
+
+def evaluate_model(model, test_df, scaler):
+    test_features = test_df['features']
+    test_labels = test_df['label']
+    
+    test_features_scaled = scaler.transform(test_features)
+    pred_labels = model.predict(test_features_scaled)
+    
+    print("Classification Report:")
+    print(classification_report(test_labels, pred_labels))
+    
+    print("Confusion Matrix:")
+    print(confusion_matrix(test_labels, pred_labels))
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("-i", "--input", required=True, help="Input file path")
