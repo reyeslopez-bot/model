@@ -3,15 +3,14 @@ import json
 import logging
 import subprocess
 import joblib
-import socket
 import pandas as pd
 import sys
-import requests
 import asyncio
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
-from sklearn import datasets, metrics
 import os
+import joblib
+
 
 # Constants and paths setup
 INTERFACE = 'en0'  # Default mac interface
@@ -24,15 +23,19 @@ JSON_DATA_PATH = '/Users/apikorus/model/network_data.json'  # Path to save captu
 CSV_DATA_PATH = '/Users/apikorus/model/network_data.csv'  # Path to save captured data in CSV format
 NMAP_RESULTS_PATH = '/Users/apikorus/model/nmap_scan_results.txt'  # Path to save Nmap scan results
 LOGGING_PATH = '/Users/apikorus/model/network_activity.log'  # Path for logging activity
+
+
 if not os.path.exists(MODEL_PATH):
     print(f"Model file not found at {MODEL_PATH}")
 
+model_size = os.path.getsize(MODEL_PATH)
+print(f"The size of the model file is: {model_size} bytes")
 
 #setup logging
 logging.basicConfig(filename='network_activity.log', level=logging.DEBUG)
-
-try:
+try:   
     model = joblib.load(MODEL_PATH)
+    joblib.dump(model, MODEL_PATH)
     logging.info("Loaded anomaly detection model successfully.")
 except FileNotFoundError:
     logging.error(f"Model file not found at {MODEL_PATH}")
