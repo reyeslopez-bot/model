@@ -11,6 +11,7 @@ import asyncio
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn import datasets, metrics
+import os
 
 # Constants and paths setup
 INTERFACE = 'en0'  # Default mac interface
@@ -23,27 +24,39 @@ JSON_DATA_PATH = '/Users/apikorus/model/network_data.json'  # Path to save captu
 CSV_DATA_PATH = '/Users/apikorus/model/network_data.csv'  # Path to save captured data in CSV format
 NMAP_RESULTS_PATH = '/Users/apikorus/model/nmap_scan_results.txt'  # Path to save Nmap scan results
 LOGGING_PATH = '/Users/apikorus/model/network_activity.log'  # Path for logging activity
+if not os.path.exists(MODEL_PATH):
+    print(f"Model file not found at {MODEL_PATH}")
 
-# Set up logging
-logging.basicConfig(filename=LOGGING_PATH, level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
-# Load the pre-trained anomaly detection model
+#setup logging
+logging.basicConfig(filename='network_activity.log', level=logging.DEBUG)
+
 try:
     model = joblib.load(MODEL_PATH)
     logging.info("Loaded anomaly detection model successfully.")
+except FileNotFoundError:
+    logging.error(f"Model file not found at {MODEL_PATH}")
+    sys.exit(1)
+except EOFError:
+    logging.error("EOFError: Model file might be corrupted or incomplete.")
+    sys.exit(1)
 except Exception as e:
     logging.error(f"Failed to load anomaly detection model: {e}", exc_info=True)
     sys.exit(1)
 
+# Define a function to extract features from a packet
 def extract_features(packet):
     # Access packet fields using Pyshark's methods (e.g., packet.ip.src, packet.tcp.port)
     features = {}  # Initialize a dictionary to store features
 
     # Extract relevant features based on your requirements
-    features['src_ip'] = packet.ip.src  # Example: Extract source IP address
-    features['dst_ip'] = packet.ip.dst  # Example: Extract destination IP address
-    features['src_port'] = packet.tcp.srcport  # Example: Extract source port number
-    features['dst_port'] = packet.tcp.dstport  # Example: Extract destination port number
+    if hasattr(packet, 'ip') and hasattr(packet.ip, 'src') and hasattr(packet.ip, 'dst'):
+        features['src_ip'] = packet.ip.src
+        features['dst_ip'] = packet.ip.dst
+
+    if hasattr(packet, 'tcp') and hasattr(packet.tcp, 'srcport') and hasattr(packet.tcp, 'dstport'):
+        features['src_port'] = packet.tcp.srcport
+        features['dst_port'] = packet.tcp.dstport
     features['bytes'] = packet.length  # Example: Extract packet length
     features['proto'] = packet.highest_layer  # Example: Extract highest layer protocol
     features['frequency'] = 1  # Example: Extract frequency of the packet
@@ -87,26 +100,31 @@ class NetworkAnalyzer:
         except Exception as e:
             logging.error(f"An unexpected error occurred while running Nmap: {e}")
 
-    def load_pipeline(self, model_path):
+    def load_pipeline(model_path):
         try:
             model = joblib.load(model_path)
-            logging.info("Loaded anomaly detection model successfully.")
             pipeline = Pipeline([
                 ('scaler', StandardScaler()),
                 ('model', model)
             ])
+            logging.info("Loaded anomaly detection model successfully.")
             return pipeline
         except Exception as e:
             logging.error(f"Failed to load the model: {e}", exc_info=True)
             sys.exit(1)
 
 def is_anomalous(features):
+    if model is None:
+        logging.error("Model is not loaded. Cannot perform anomaly detection.")
+        return False
+
     try:
         prediction = model.predict([list(features.values())])
         return prediction[0] == -1
     except ValueError as e:
         logging.error(f"Error in prediction: {e}")
-    return False
+        return False
+
 
 def convert_json_to_csv(json_data_path, csv_data_path):
     try:

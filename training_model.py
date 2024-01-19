@@ -4,13 +4,19 @@ import logging
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
-
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.datasets import load_iris
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s [%(levelname)s] %(message)s')
 
 # Define global constants
 INTERFACE = 'en0'
 DURATION = 30
+
+# Load a sample dataset
+data = load_iris()
+X, y = data.data, data.target
 
 def train_model():
     X_train, X_test, y_train, y_test = train_test_split(X_df, y_series, test_size=0.2, stratify=y_series, random_state=42)
