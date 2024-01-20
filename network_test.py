@@ -5,50 +5,46 @@ import subprocess
 import joblib
 import pandas as pd
 import sys
-import asyncio
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
 import os
-import joblib
-
+import traceback
 
 # Constants and paths setup
 INTERFACE = 'en0'  # Default mac interface
-DURATION = 300  # Five minutes in seconds
-COMMON_PORTS = [  # Ports in common use and often seen in cyberattacks
-    20, 21, 22, 23, 25, 53, 80, 443, 110, 135, 139, 445, 1433, 1434, 3306, 3389, 5900, 8080
-]
-MODEL_PATH = '/Users/apikorus/model/mymodel.pkl'  # Path to the trained anomaly detection model
-JSON_DATA_PATH = '/Users/apikorus/model/network_data.json'  # Path to save captured data in JSON format
-CSV_DATA_PATH = '/Users/apikorus/model/network_data.csv'  # Path to save captured data in CSV format
-NMAP_RESULTS_PATH = '/Users/apikorus/model/nmap_scan_results.txt'  # Path to save Nmap scan results
+DURATION = 300  # Duration in seconds
+MODEL_PATH = '/Users/apikorus/model/trained_model.pkl'  # Path to the anomaly detection model
+JSON_DATA_PATH = '/Users/apikorus/model/network_data.json'  # Path to save captured data in JSON
 LOGGING_PATH = '/Users/apikorus/model/network_activity.log'  # Path for logging activity
+COMMON_PORTS = [  # Ports in common use and often seen in cyberattacks
+    20, 21, 22, 23, 25, 53, 80, 443, 110, 135, 139, 445, 1433, 1434, 3306, 3389, 5900, 8080]
+NMAP_RESULTS_PATH = '/Users/apikorus/model/nmap_scan_results.txt'  # Path to save Nmap scan results
+CSV_DATA_PATH = '/Users/apikorus/model/network_data.csv'  # Path to save captured data in CSV
 
+# Setup logging
+logging.basicConfig(filename=LOGGING_PATH, level=logging.DEBUG)
 
+# Check if model exists and log its size
 if not os.path.exists(MODEL_PATH):
-    print(f"Model file not found at {MODEL_PATH}")
-
-model_size = os.path.getsize(MODEL_PATH)
-print(f"The size of the model file is: {model_size} bytes")
-
-#setup logging
-logging.basicConfig(filename='network_activity.log', level=logging.DEBUG)
-try:   
-    model = joblib.load(MODEL_PATH)
-    joblib.dump(model, MODEL_PATH)
-    logging.info("Loaded anomaly detection model successfully.")
-except FileNotFoundError:
     logging.error(f"Model file not found at {MODEL_PATH}")
     sys.exit(1)
-except EOFError:
-    logging.error("EOFError: Model file might be corrupted or incomplete.")
-    sys.exit(1)
+model_size = os.path.getsize(MODEL_PATH)
+logging.info(f"Model size: {model_size} bytes")
+
+os.makedirs(os.path.dirname(LOGGING_PATH), exist_ok=True)
+# Load the model
+try:
+    model = joblib.load(MODEL_PATH)
+    logging.info("Model loaded successfully.")
 except Exception as e:
-    logging.error(f"Failed to load anomaly detection model: {e}", exc_info=True)
+    logging.error(f"Failed to load model: {e}", exc_info=True)
     sys.exit(1)
 
 # Define a function to extract features from a packet
 def extract_features(packet):
+    features = {}
     # Access packet fields using Pyshark's methods (e.g., packet.ip.src, packet.tcp.port)
     features = {}  # Initialize a dictionary to store features
 
@@ -70,18 +66,36 @@ def extract_features(packet):
 class NetworkAnalyzer:
     def __init__(self, interface, duration, model_path):
         self.interface = interface
-        self.duration = duration
+        self.duration = duration  # Duration is stored as an attribute
         self.pipeline = self.load_pipeline(model_path)
 
-    async def capture_packets(self):
-        capture = pyshark.LiveCapture(interface=self.interface, only_summaries=False)
-        await asyncio.wait_for(capture.sniff_continuously(packet_count=50), timeout=self.duration)
-        return [packet for packet in capture]
+    def capture_packets(self):
+        logging.info("Starting packet capture with tcpdump")
+        temp_file = "/tmp/captured_packets.pcap"
+        tcpdump_command = f"sudo tcpdump -i {self.interface} -c 50 -w {temp_file} -q"
 
-    def process_packet(self, packet):
-        features = extract_features(packet)
-        return features
+        try:
+            # Run tcpdump and wait for it to complete
+            subprocess.run(tcpdump_command, shell=True, timeout=self.duration)
+            logging.info("Packet capture completed with tcpdump")
 
+            # Read the captured packets from the file
+            capture = pyshark.FileCapture(temp_file, only_summaries=False)
+            packets = [packet for packet in capture]
+            logging.info(f"Total packets read from file: {len(packets)}")
+
+        except subprocess.TimeoutExpired:
+            logging.warning("Packet capture with tcpdump timed out")
+        except Exception as e:
+            logging.error(f"Error during packet capture with tcpdump: {e}")
+            logging.debug(f"Stack Trace: {traceback.format_exc()}")
+        finally:
+            # Clean up: remove the temporary file
+            if os.path.exists(temp_file):
+                os.remove(temp_file)
+
+        return packets
+        
     def analyze_traffic(self, packets):
         data_for_ml = []
         for packet in packets:
@@ -103,7 +117,7 @@ class NetworkAnalyzer:
         except Exception as e:
             logging.error(f"An unexpected error occurred while running Nmap: {e}")
 
-    def load_pipeline(model_path):
+    def load_pipeline(self, model_path):  # Correct method definition
         try:
             model = joblib.load(model_path)
             pipeline = Pipeline([
@@ -146,17 +160,25 @@ def get_network_info(interface):
     except subprocess.CalledProcessError as e:
         logging.error(f"Failed to get network info for interface {interface}: {e}", exc_info=True)
         return None
-
+    
 def main():
+    logging.info("Starting main function")
+
     try:
+        analyzer = NetworkAnalyzer(INTERFACE, DURATION, MODEL_PATH)
+        logging.info("Analyzer initialized")
+
+        packets = analyzer.capture_packets()
+        logging.info(f"Captured {len(packets)} packets")
+
+        logging.debug("Starting traffic analysis")
+        analyzed_data = analyzer.analyze_traffic(packets)
+        logging.info("Traffic analysis completed")
+
         ip = get_network_info(INTERFACE)
         if not ip:
             logging.error(f"Failed to get network info for interface {INTERFACE}")
             return
-
-        analyzer = NetworkAnalyzer(INTERFACE, DURATION, MODEL_PATH)
-        packets = asyncio.run(analyzer.capture_packets())
-        analyzed_data = analyzer.analyze_traffic(packets)
 
         with open(JSON_DATA_PATH, 'w') as f:
             json.dump(analyzed_data, f)
@@ -166,9 +188,14 @@ def main():
 
         network_range = '.'.join(ip.split('.')[:-1]) + '.0/24'
         analyzer.run_nmap(network_range)
+
     except Exception as e:
-        logging.error(f"An unexpected error occurred in main: {e}", exc_info=True)
-        sys.exit(1)
+        logging.error(f"An unexpected error occurred in main: {e}")
+        logging.debug(f"Stack Trace: {traceback.format_exc()}")
+
+    finally:
+        logging.info("Main function execution completed")
 
 if __name__ == "__main__":
+    logging.basicConfig(filename=LOGGING_PATH, level=logging.DEBUG)
     main()
