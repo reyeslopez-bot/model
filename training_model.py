@@ -5,6 +5,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.datasets import load_iris
 import joblib
+import os
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s [%(levelname)s] %(message)s')
 
@@ -13,7 +14,12 @@ data = load_iris()
 X, y = data.data, data.target
 
 def train_model():
-    # Load network data
+    JSON_DATA_PATH = '/Users/apikorus/model/network_data.json'  # Path to save captured data in JSON
+    # Check if JSON file exists and is not empty
+    if not os.path.exists([JSON_DATA_PATH]) or os.stat(JSON_DATA_PATH).st_size == 0:
+        logging.error(f"{JSON_DATA_PATH} is missing or empty.")
+        return
+    
     try:
         with open('network_data.json', 'r') as file:
             file_content = file.read()
