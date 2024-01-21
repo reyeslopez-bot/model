@@ -1,0 +1,67 @@
+INFO:root:Starting main function
+INFO:root:Model size: 48113 bytes
+INFO:root:Pipeline created successfully.
+INFO:root:Analyzer initialized
+INFO:root:Starting packet capture with tcpdump
+INFO:root:Packet capture completed with tcpdump
+DEBUG:asyncio:Using selector: KqueueSelector
+INFO:root:Total packets read from file: 50
+INFO:root:Captured 50 packets
+DEBUG:root:Starting traffic analysis
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+ERROR:root:Error in prediction: could not convert string to float: 'TLS'
+ERROR:root:Error in prediction: could not convert string to float: 'TLS'
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+INFO:root:Traffic analysis completed
+INFO:root:Packet analysis completed and saved to JSON.
+ERROR:root:An unexpected error occurred in main: convert_json_to_csv() takes 0 positional arguments but 2 were given
+DEBUG:root:Stack Trace: Traceback (most recent call last):
+  File "/Users/apikorus/model/network_test.py", line 204, in main
+    convert_json_to_csv(JSON_DATA_PATH, CSV_DATA_PATH)
+TypeError: convert_json_to_csv() takes 0 positional arguments but 2 were given
+
+INFO:root:Main function execution completed
+INFO:root:Starting main function
+INFO:root:Model size: 48113 bytes
+INFO:root:Pipeline created successfully.
+INFO:root:Analyzer initialized
+INFO:root:Starting packet capture with tcpdump
+INFO:root:Packet capture completed with tcpdump
+DEBUG:asyncio:Using selector: KqueueSelector
+INFO:root:Total packets read from file: 50
+INFO:root:Captured 50 packets
+DEBUG:root:Starting traffic analysis
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+INFO:root:Traffic analysis completed
+INFO:root:Packet analysis completed and saved to JSON.
+INFO:root:Data saved as CSV to /Users/apikorus/model/network_data.csv
+INFO:root:Nmap scan completed. Check the results in nmap_scan_results.txt
+INFO:root:Main function execution completed
+INFO:root:Starting main function
+INFO:root:Model size: 48113 bytes
+INFO:root:Pipeline created successfully.
+INFO:root:Analyzer initialized
+INFO:root:Starting packet capture with tcpdump
+INFO:root:Packet capture completed with tcpdump
+DEBUG:asyncio:Using selector: KqueueSelector
+INFO:root:Total packets read from file: 50
+INFO:root:Captured 50 packets
+DEBUG:root:Starting traffic analysis
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+INFO:root:Traffic analysis completed
+INFO:root:Packet analysis completed and saved to JSON.
+INFO:root:Data saved as CSV to /Users/apikorus/model/network_data.csv
+INFO:root:Nmap scan completed. Check the results in nmap_scan_results.txt
+INFO:root:Main function execution completed

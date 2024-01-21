@@ -1,1 +1,4 @@
-
+anomaly,features.src_port,features.dst_port,features.bytes,features.proto,features.frequency,features.timestamp
+False,57457,8009,176,TCP,1,1705871643.236315000
+False,8009,57457,176,TCP,1,1705871643.246630000
+False,57457,8009,66,TCP,1,1705871643.246794000
