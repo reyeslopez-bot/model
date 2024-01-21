@@ -1,34 +1,89 @@
 [
     {
         "features": {
-            "src_port": "57457",
+            "src_port": "57836",
             "dst_port": "8009",
             "bytes": "176",
             "proto": "TCP",
             "frequency": 1,
-            "timestamp": "1705871643.236315000"
+            "timestamp": "1705874029.680208000"
         },
         "anomaly": false
     },
     {
         "features": {
             "src_port": "8009",
-            "dst_port": "57457",
+            "dst_port": "57836",
             "bytes": "176",
             "proto": "TCP",
             "frequency": 1,
-            "timestamp": "1705871643.246630000"
+            "timestamp": "1705874029.694696000"
         },
         "anomaly": false
     },
     {
         "features": {
-            "src_port": "57457",
+            "src_port": "57836",
             "dst_port": "8009",
             "bytes": "66",
             "proto": "TCP",
             "frequency": 1,
-            "timestamp": "1705871643.246794000"
+            "timestamp": "1705874029.694869000"
+        },
+        "anomaly": false
+    },
+    {
+        "features": {
+            "src_port": "57836",
+            "dst_port": "8009",
+            "bytes": "176",
+            "proto": "TCP",
+            "frequency": 1,
+            "timestamp": "1705874034.700541000"
+        },
+        "anomaly": false
+    },
+    {
+        "features": {
+            "src_port": "57836",
+            "dst_port": "8009",
+            "bytes": "176",
+            "proto": "TCP",
+            "frequency": 1,
+            "timestamp": "1705874034.853806000"
+        },
+        "anomaly": false
+    },
+    {
+        "features": {
+            "src_port": "8009",
+            "dst_port": "57836",
+            "bytes": "176",
+            "proto": "TCP",
+            "frequency": 1,
+            "timestamp": "1705874034.866409000"
+        },
+        "anomaly": false
+    },
+    {
+        "features": {
+            "src_port": "57836",
+            "dst_port": "8009",
+            "bytes": "66",
+            "proto": "TCP",
+            "frequency": 1,
+            "timestamp": "1705874034.866595000"
+        },
+        "anomaly": false
+    },
+    {
+        "features": {
+            "src_port": "8009",
+            "dst_port": "57836",
+            "bytes": "78",
+            "proto": "TCP",
+            "frequency": 1,
+            "timestamp": "1705874034.869966000"
         },
         "anomaly": false
     }

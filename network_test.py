@@ -10,7 +10,7 @@ from sklearn.preprocessing import StandardScaler
 import os
 import traceback
 import numpy as np
-
+from training_model import train_model
 # Constants and paths setup
 INTERFACE = 'en0'  # Default mac interface
 DURATION = 300  # Duration in seconds
@@ -151,13 +151,14 @@ def is_anomalous(features):
         return False
 
     try:
-        # Ensuring features are in the correct format for prediction
-        feature_values = np.array(list(features.values())).reshape(1, -1)
-        prediction = model.predict(feature_values)
+        # Convert features to DataFrame with correct column names
+        features_df = pd.DataFrame([features], columns=model.feature_names_in_)
+        prediction = model.predict(features_df)
         return prediction[0] == -1
     except ValueError as e:
         logging.error(f"Error in prediction: {e}")
         return False
+
 
 
 def convert_json_to_csv():
@@ -172,11 +173,13 @@ def convert_json_to_csv():
 
 def get_network_info():
     try:
+        # Correctly call subprocess.check_output
         ip_info = subprocess.check_output(['ifconfig', INTERFACE], text=True).strip()
         return ip_info
     except subprocess.CalledProcessError as e:
         logging.error(f"Failed to get network info for interface {INTERFACE}: {e}", exc_info=True)
         return None
+
     
 def main():
     logging.info("Starting main function")
@@ -201,7 +204,7 @@ def main():
             json.dump(analyzed_data, f, indent=4)
 
         logging.info("Packet analysis completed and saved to JSON.")
-
+        train_model()
         convert_json_to_csv()
 
         network_range = '.'.join(ip.split('.')[:-1]) + '.0/24'

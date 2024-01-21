@@ -65,3 +65,209 @@ INFO:root:Packet analysis completed and saved to JSON.
 INFO:root:Data saved as CSV to /Users/apikorus/model/network_data.csv
 INFO:root:Nmap scan completed. Check the results in nmap_scan_results.txt
 INFO:root:Main function execution completed
+INFO:root:Starting main function
+INFO:root:Model size: 48113 bytes
+INFO:root:Pipeline created successfully.
+INFO:root:Analyzer initialized
+INFO:root:Starting packet capture with tcpdump
+INFO:root:Packet capture completed with tcpdump
+DEBUG:asyncio:Using selector: KqueueSelector
+INFO:root:Total packets read from file: 50
+INFO:root:Captured 50 packets
+DEBUG:root:Starting traffic analysis
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+ERROR:root:Error in prediction: could not convert string to float: 'TLS'
+ERROR:root:Error in prediction: could not convert string to float: 'TLS'
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+ERROR:root:Error in prediction: could not convert string to float: 'TCP'
+INFO:root:Traffic analysis completed
+INFO:root:Packet analysis completed and saved to JSON.
+INFO:tensorflow:Assets written to: trained_model/assets
+INFO:root:Data saved as CSV to /Users/apikorus/model/network_data.csv
+INFO:root:Nmap scan completed. Check the results in nmap_scan_results.txt
+INFO:root:Main function execution completed
+INFO:root:Starting main function
+INFO:root:Model size: 48113 bytes
+INFO:root:Pipeline created successfully.
+INFO:root:Analyzer initialized
+INFO:root:Starting packet capture with tcpdump
+INFO:root:Packet capture completed with tcpdump
+DEBUG:asyncio:Using selector: KqueueSelector
+INFO:root:Total packets read from file: 50
+INFO:root:Captured 50 packets
+DEBUG:root:Starting traffic analysis
+ERROR:root:Error in prediction: Input X contains NaN.
+RandomForestClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+ERROR:root:Error in prediction: Input X contains NaN.
+RandomForestClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+ERROR:root:Error in prediction: Input X contains NaN.
+RandomForestClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+ERROR:root:Error in prediction: Input X contains NaN.
+RandomForestClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+ERROR:root:Error in prediction: Input X contains NaN.
+RandomForestClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+ERROR:root:Error in prediction: Input X contains NaN.
+RandomForestClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+INFO:root:Traffic analysis completed
+INFO:root:Packet analysis completed and saved to JSON.
+INFO:tensorflow:Assets written to: trained_model/assets
+INFO:root:Data saved as CSV to /Users/apikorus/model/network_data.csv
+INFO:root:Nmap scan completed. Check the results in nmap_scan_results.txt
+INFO:root:Main function execution completed
+INFO:root:Starting main function
+INFO:root:Model size: 48113 bytes
+INFO:root:Pipeline created successfully.
+INFO:root:Analyzer initialized
+INFO:root:Starting packet capture with tcpdump
+INFO:root:Packet capture completed with tcpdump
+DEBUG:asyncio:Using selector: KqueueSelector
+INFO:root:Total packets read from file: 50
+INFO:root:Captured 50 packets
+DEBUG:root:Starting traffic analysis
+ERROR:root:Error in prediction: Input X contains NaN.
+RandomForestClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+ERROR:root:Error in prediction: Input X contains NaN.
+RandomForestClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+ERROR:root:Error in prediction: Input X contains NaN.
+RandomForestClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+ERROR:root:Error in prediction: Input X contains NaN.
+RandomForestClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+ERROR:root:Error in prediction: Input X contains NaN.
+RandomForestClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+ERROR:root:Error in prediction: Input X contains NaN.
+RandomForestClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+INFO:root:Traffic analysis completed
+INFO:root:Packet analysis completed and saved to JSON.
+INFO:tensorflow:Assets written to: trained_model/assets
+INFO:root:Data saved as CSV to /Users/apikorus/model/network_data.csv
+INFO:root:Nmap scan completed. Check the results in nmap_scan_results.txt
+INFO:root:Main function execution completed
+INFO:root:Starting main function
+INFO:root:Model size: 48225 bytes
+INFO:root:Pipeline created successfully.
+INFO:root:Analyzer initialized
+INFO:root:Starting packet capture with tcpdump
+INFO:root:Packet capture completed with tcpdump
+DEBUG:asyncio:Using selector: KqueueSelector
+INFO:root:Total packets read from file: 50
+INFO:root:Captured 50 packets
+DEBUG:root:Starting traffic analysis
+ERROR:root:Error in prediction: Input X contains NaN.
+RandomForestClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+ERROR:root:Error in prediction: Input X contains NaN.
+RandomForestClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+INFO:root:Traffic analysis completed
+INFO:root:Packet analysis completed and saved to JSON.
+INFO:root:Model accuracy: 1.0
+INFO:root:Model saved with joblib.
+INFO:root:Data saved as CSV to /Users/apikorus/model/network_data.csv
+INFO:root:Nmap scan completed. Check the results in nmap_scan_results.txt
+INFO:root:Main function execution completed
+INFO:root:Starting main function
+INFO:root:Model size: 48369 bytes
+INFO:root:Pipeline created successfully.
+INFO:root:Analyzer initialized
+INFO:root:Starting packet capture with tcpdump
+INFO:root:Packet capture completed with tcpdump
+DEBUG:asyncio:Using selector: KqueueSelector
+INFO:root:Total packets read from file: 50
+INFO:root:Captured 50 packets
+DEBUG:root:Starting traffic analysis
+ERROR:root:Error in prediction: Input X contains NaN.
+RandomForestClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+ERROR:root:Error in prediction: Input X contains NaN.
+RandomForestClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+ERROR:root:Error in prediction: Input X contains NaN.
+RandomForestClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+ERROR:root:Error in prediction: Input X contains NaN.
+RandomForestClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+ERROR:root:Error in prediction: Input X contains NaN.
+RandomForestClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+ERROR:root:Error in prediction: Input X contains NaN.
+RandomForestClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+ERROR:root:Error in prediction: Input X contains NaN.
+RandomForestClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+ERROR:root:Error in prediction: Input X contains NaN.
+RandomForestClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+ERROR:root:Error in prediction: Input X contains NaN.
+RandomForestClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+ERROR:root:Error in prediction: Input X contains NaN.
+RandomForestClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+INFO:root:Traffic analysis completed
+INFO:root:Packet analysis completed and saved to JSON.
+INFO:root:Model accuracy: 1.0
+INFO:root:Model saved with joblib.
+INFO:root:Data saved as CSV to /Users/apikorus/model/network_data.csv
+INFO:root:Nmap scan completed. Check the results in nmap_scan_results.txt
+INFO:root:Main function execution completed
+INFO:root:Starting main function
+INFO:root:Model size: 48385 bytes
+INFO:root:Pipeline created successfully.
+INFO:root:Analyzer initialized
+INFO:root:Starting packet capture with tcpdump
+INFO:root:Packet capture completed with tcpdump
+DEBUG:asyncio:Using selector: KqueueSelector
+INFO:root:Total packets read from file: 50
+INFO:root:Captured 50 packets
+DEBUG:root:Starting traffic analysis
+ERROR:root:Error in prediction: Input X contains NaN.
+RandomForestClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+INFO:root:Traffic analysis completed
+INFO:root:Packet analysis completed and saved to JSON.
+ERROR:root:An unexpected error occurred in main: name 'X_df_imputed' is not defined
+DEBUG:root:Stack Trace: Traceback (most recent call last):
+  File "/Users/apikorus/model/network_test.py", line 207, in main
+    train_model()
+  File "/Users/apikorus/model/training_model.py", line 50, in train_model
+    X_train, X_test, y_train, y_test = train_test_split(X_df_imputed, y_series, test_size=0.2, random_state=42)
+                                                        ^^^^^^^^^^^^
+NameError: name 'X_df_imputed' is not defined
+
+INFO:root:Main function execution completed
+INFO:root:Starting main function
+INFO:root:Model size: 48385 bytes
+INFO:root:Pipeline created successfully.
+INFO:root:Analyzer initialized
+INFO:root:Starting packet capture with tcpdump
+INFO:root:Packet capture completed with tcpdump
+DEBUG:asyncio:Using selector: KqueueSelector
+INFO:root:Total packets read from file: 50
+INFO:root:Captured 50 packets
+DEBUG:root:Starting traffic analysis
+ERROR:root:Error in prediction: Input X contains NaN.
+RandomForestClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+ERROR:root:Error in prediction: Input X contains NaN.
+RandomForestClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+ERROR:root:Error in prediction: Input X contains NaN.
+RandomForestClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+ERROR:root:Error in prediction: Input X contains NaN.
+RandomForestClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+ERROR:root:Error in prediction: Input X contains NaN.
+RandomForestClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+ERROR:root:Error in prediction: Input X contains NaN.
+RandomForestClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+ERROR:root:Error in prediction: Input X contains NaN.
+RandomForestClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+ERROR:root:Error in prediction: Input X contains NaN.
+RandomForestClassifier does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+INFO:root:Traffic analysis completed
+INFO:root:Packet analysis completed and saved to JSON.
+INFO:tensorflow:Assets written to: trained_model/assets
+INFO:root:Data saved as CSV to /Users/apikorus/model/network_data.csv
+INFO:root:Nmap scan completed. Check the results in nmap_scan_results.txt
+INFO:root:Main function execution completed
